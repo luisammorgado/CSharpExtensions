@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <RootNamespace>CSharp.Guard</RootNamespace>
+    <NeutralLanguage>en</NeutralLanguage>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <AssemblyName>CSharp.Guard</AssemblyName>
+  </PropertyGroup>  
+  
+  <PropertyGroup>
+    <PackageId>CSharp.Guard</PackageId>
+    <PackageTags>Guard, preconditions, code contracts</PackageTags>
+    <Description>A simple library that facilitates runtime checks of code and allows to define preconditions and invariants within a method.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Luis Morgado</Authors>
+    <Product>CSharp.Guard</Product>    
+    <Company>NA</Company>
+    <Copyright>Copyright ©2024</Copyright>    
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RepositoryUrl></RepositoryUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageLicenseFile></PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Global.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Global.cs" />
+  </ItemGroup>
+  
+</Project>

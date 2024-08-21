@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+	<packageSources>
+		<clear />
+		<add key="ArchitectureShared" value="https://pkgs.dev.azure.com/courtsservice/97483666-5925-48c5-a9fd-73d3ac6714bf/_packaging/ArchitectureShared/nuget/v3/index.json" />
+	</packageSources>
+</configuration>

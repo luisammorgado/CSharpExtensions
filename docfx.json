@@ -1,0 +1,63 @@
+{
+	"metadata": [
+		{
+			"src": [
+				{
+					"src": "../../src",
+					"files": [
+						"**/UCMS.Shared.csproj"
+					],
+					"exclude": [ "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+				}
+			],
+			"dest": "docs",
+			"shouldSkipMarkup": true
+		}
+	],
+	"build": {
+		"content": [
+			{
+				"files": [ "docs/**.yml" ]
+			},
+			{
+				"files": [ "wiki/**/toc.yml", "wiki/**/*.md", "wiki/toc.yml", "wiki/*.md", ".order" ],
+				"exclude": [ "_site/**", "**/bin/**", "**/obj/**", "**/[Tt]ests/**" ]
+			}
+		],
+		"resource": [
+			{
+				"files": [ "images/**", "wiki/.attachments/**" ],
+				"exclude": [ "images/*.md" ]
+			}
+		],
+		"dest": "_wwwroot",
+		"template": [ "default", "templates/modern" ],
+		"overwrite": "true",
+		"markdownEngineName": "markdig",
+		"markdownEngineProperties": {
+			"markdigExtensions": [
+				"Abbreviations",
+				"Bootstrap",
+				"Diagrams",
+				"DefinitionLists",
+				"Footers",
+				"MediaLinks",
+				"Footnotes",
+				"Yaml"
+			]
+		},
+		"noLangKeyword": true,
+		"keepFileLink": false,
+		"cleanupCacheHistory": true,
+		"disableGitFeatures": true,
+		"globalMetadata": {
+			"_appName": "UCMS Shared",
+			"_appTitle": "UCMS Shared",
+			"_appFooter": "Court Services",
+			"_noindex": true,
+			"_disableContribution": true,
+			"_enableSearch": true,
+			"pdf": false
+		}
+	}
+}
