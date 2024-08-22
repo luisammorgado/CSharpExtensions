@@ -39,5 +39,4 @@ jobs:
       
     - name: Push to NuGet
       ## oy2denvbjvpyobvxnmeauqdcwmcw7ave3oc3xddlwo5dsu
-      ## ${{secrets.NUGET_API_KEY}}
-      run: dotnet nuget push *.nupkg --skip-duplicate -s https://api.nuget.org/v3/index.json -k oy2denvbjvpyobvxnmeauqdcwmcw7ave3oc3xddlwo5dsu
+      run: dotnet nuget push **.nupkg --skip-duplicate -s https://api.nuget.org/v3/index.json -k ${{secrets.NUGET_API_KEY}}
