@@ -31,6 +31,14 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
       
+    - name: DotNet Bump Versions
+      uses: SiqiLu/dotnet-bump-version@2.0.0
+      with:
+        version_files: "**/*.csproj"
+        version_mask: 0.0.1.0
+        version_overwrite: "*.*.*.*"
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+            
     - name: Build
       run: dotnet build CSharp.Guard/CSharp.Guard.csproj --configuration Debug --no-restore
       
