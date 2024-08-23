@@ -14,6 +14,7 @@ env:
   AZURE_WEBAPP_NAME: web-api
   AZURE_WEBAPP_PACKAGE_PATH: './publish'
   DOTNET_VERSION: '8.0.x'
+  PROJECT: 'CSharp.Guard/CSharp.Guard.csproj'
 
 jobs:
   build:
@@ -30,20 +31,20 @@ jobs:
       
     - name: Restore dependencies
       run: dotnet restore
-      
+                 
+    - name: Build
+      run: dotnet build ${{ env.PROJECT }} --configuration Debug --no-restore
+
     - name: DotNet Bump Versions
       uses: SiqiLu/dotnet-bump-version@2.0.0
       with:
-        version_files: "**/*.csproj"
+        version_files: ${{ env.PROJECT }}
         version_mask: 0.0.1.0
         version_overwrite: "*.*.*.*"
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-            
-    - name: Build
-      run: dotnet build CSharp.Guard/CSharp.Guard.csproj --configuration Debug --no-restore
-      
+        github_token: ${{ secrets.GIT_TOKEN }}
+        
     - name: Pack
-      run: dotnet pack CSharp.Guard/CSharp.Guard.csproj -c Debug --no-restore --no-build
+      run: dotnet pack ${{ env.PROJECT }} -c Debug --no-restore --no-build
       
     - name: Push to NuGet
       ## oy2denvbjvpyobvxnmeauqdcwmcw7ave3oc3xddlwo5dsu
