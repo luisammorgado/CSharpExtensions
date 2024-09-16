@@ -9,8 +9,8 @@ public static partial class Extensions
     /// value. if the object is null, returns default(TResult)
     /// </summary>
     [ExcludeFromCodeCoverage]
-    public static TResult? IfNotNull<T, TResult>(this T target, Func<T, TResult> getValue)
-    {
-        return target != null ? getValue(target) : default;
-    }
+    public static TResult? IfNotNull<T, TResult>(this T target, Func<T, TResult> getValue) =>
+        target is not null
+        ? getValue(target)
+        : default;
 }

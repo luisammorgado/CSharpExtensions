@@ -1,6 +1,6 @@
 ﻿namespace CSharp.ExtensionMethods;
 
-public static class EnumHelper
+public static partial class EnumerableExtensions
 {
     public static T ToEnum<T>(this string enumString) =>
         (T)Enum.Parse(typeof(T), enumString);

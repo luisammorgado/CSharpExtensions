@@ -1,11 +1,11 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace CSharp.ExtensionMethods;
+namespace CSharp.ExtensionMethods.StreamExtensions;
 
-public static partial class Extensions
+public static partial class StreamExtensions
 {
     [ExcludeFromCodeCoverage]
-    public static byte[] ConvertToByteArray(this System.IO.Stream stream)
+    public static byte[] ConvertToByteArray(this Stream stream)
     {
         var streamLength = Convert.ToInt32(stream.Length);
         byte[] data = new byte[streamLength + 1];
