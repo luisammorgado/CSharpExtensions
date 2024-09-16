@@ -82,7 +82,6 @@ public static partial class Guard
     public static void NotAny<T, TException>([NotNull] IEnumerable<T> param, [NotNull] TException exception) where TException : Exception, new()
     {
         ArgumentNullException.ThrowIfNull(param);
-
         ArgumentNullException.ThrowIfNull(exception);
 
         Guard.For(() => !param.Any(), exception);

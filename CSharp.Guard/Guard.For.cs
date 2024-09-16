@@ -4,9 +4,6 @@ namespace CSharp.Guard;
 
 public static partial class Guard
 {
-    private const string GenericParameterName = "parameter";
-    private const string ForMessageTemplate = "Precondition not met.";
-
     /// <summary>
     /// Guards the specified <paramref name="predicate" /> from being violated by throwing an
     /// exception of type <typeparamref name="TException" /> when the precondition has not been met
@@ -44,27 +41,10 @@ public static partial class Guard
     where TException : Exception, new()
     {
         ArgumentNullException.ThrowIfNull(predicate);
-
         ArgumentNullException.ThrowIfNull(exception);
 
         bool conditionNotMet = predicate.Invoke();
         if (conditionNotMet)
             throw exception;
-    }
-
-    private static TException CreateException<TException>(string message = "")
-    where TException : Exception, new()
-    {
-        if (String.IsNullOrWhiteSpace(message))
-            return new TException();
-
-        try
-        {
-            return (TException)Activator.CreateInstance(typeof(TException), message)!;
-        }
-        catch (MissingMethodException)
-        {
-            return new TException();
-        }
     }
 }

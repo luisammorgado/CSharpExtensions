@@ -19,7 +19,7 @@
   <PropertyGroup>
     <PackageId>CSharp.Guard</PackageId>
     <PackageTags>Guard, preconditions, code contracts</PackageTags>
-    <Description>A simple library that facilitates runtime checks of code and allows to define preconditions and invariants within a method.</Description>
+    <Description>A library that facilitates runtime checks of code and allows to define preconditions and invariants within a method.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
@@ -37,13 +37,5 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageLicenseFile></PackageLicenseFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Compile Remove="Global.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Global.cs" />
-  </ItemGroup>
   
 </Project>

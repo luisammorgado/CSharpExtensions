@@ -111,9 +111,7 @@ public static partial class Guard
     where TException : Exception, new()
     {
         ArgumentNullException.ThrowIfNull(param);
-
         ArgumentNullException.ThrowIfNull(regexPattern);
-
         ArgumentNullException.ThrowIfNull(exception);
 
         Guard.For(() => !Regex.IsMatch(param, regexPattern, regexOptions), exception);
