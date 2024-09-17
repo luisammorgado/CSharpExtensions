@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-
-namespace CSharp.FunctionalExtensions.Monad.MaybeMonad;
+﻿namespace CSharp.FunctionalExtensions.Monad.MaybeMonad;
 
 /*
 The purpose of this struct is just for syntax usage of the Maybe struct.

@@ -2,12 +2,12 @@
 
 public static partial class EnumerableExtensions
 {
-    public static void Each<T>(this IEnumerable<T> items, Action<T> action)
+    public static void Each<T>(this IEnumerable<T> @this, Action<T> action)
     {
-        if (items == null)
+        if (@this == null)
             return;
 
-        foreach (var item in items)
+        foreach (var item in @this)
             action(item);
     }
 }

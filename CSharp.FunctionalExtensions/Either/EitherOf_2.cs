@@ -1,7 +1,4 @@
-﻿using System.Diagnostics;
-using System.Diagnostics.CodeAnalysis;
-
-namespace CSharp.FunctionalExtensions;
+﻿namespace CSharp.FunctionalExtensions;
 
 [DebuggerDisplay("{thisType}, EitherOfType = {_currentType}; Type = {_currentValueType?.Name}; Value = '{ToString()}'")]
 public readonly struct EitherOf<TFirst, TSecond> : IEquatable<EitherOf<TFirst, TSecond>>

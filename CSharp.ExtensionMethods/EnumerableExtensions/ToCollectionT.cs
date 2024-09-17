@@ -5,11 +5,11 @@ namespace CSharp.ExtensionMethods;
 
 public static partial class EnumerableExtensions
 {
-    public static Collection<T> ToCollection<T>(this IEnumerable<T> enumerable)
+    public static Collection<T> ToCollection<T>(this IEnumerable<T> @this)
     {
         var collection = new Collection<T>();
 
-        foreach (T i in enumerable)
+        foreach (T i in @this)
             collection.Add(i);
 
         return collection;

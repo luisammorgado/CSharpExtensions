@@ -1,13 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace CSharp.FunctionalExtensions;
+﻿namespace CSharp.FunctionalExtensions;
 
 /// <summary>
 /// Represents a result of an operation that can either be a success or a failure.
 /// </summary>
 /// <typeparam name="TData">The type of the data in the result.</typeparam>
 /// <typeparam name="TError">The type of the error in the result.</typeparam>
-///
 [ExcludeFromCodeCoverage]
 public readonly struct Result<TData, TError>
 {

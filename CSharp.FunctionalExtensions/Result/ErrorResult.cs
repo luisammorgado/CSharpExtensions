@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-
-namespace CSharp.FunctionalExtensions;
+﻿namespace CSharp.FunctionalExtensions;
 
 /// <summary>
 /// Represents an error result record.

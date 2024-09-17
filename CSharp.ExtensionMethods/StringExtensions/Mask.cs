@@ -26,46 +26,46 @@ public static partial class StringExtensions
     /// <summary>
     /// Returns true if the string is non-null and at least the specified number of characters.
     /// </summary>
-    /// <param name="value">The string to check.</param>
+    /// <param name="this">The string to check.</param>
     /// <param name="length">The minimum length.</param>
     /// <returns>True if string is non-null and at least the length specified.</returns>
     /// <exception>throws ArgumentOutOfRangeException if length is not a non-negative number.</exception>
-    public static bool IsLengthAtLeast(this string value, int length)
+    public static bool IsLengthAtLeast(this string @this, int length)
     {
         if (length < 0)
             throw new ArgumentOutOfRangeException(nameof(length), length, "The length must be a non-negative number.");
 
-        return value != null
-                    && value.Length >= length;
+        return @this != null
+                    && @this.Length >= length;
     }
 
     /// <summary>
     /// Mask the source string with the mask char except for the last exposed digits.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <param name="maskChar">The character to use to mask the source.</param>
     /// <param name="numExposed">Number of characters exposed in masked value.</param>
     /// <param name="style">The masking style to use (all characters or just alpha-nums).</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue, char maskChar, int numExposed, MaskStyle style)
+    public static string Mask(this string @this, char maskChar, int numExposed, MaskStyle style)
     {
-        var maskedString = sourceValue;
+        var maskedString = @this;
 
-        if (sourceValue.IsLengthAtLeast(numExposed))
+        if (@this.IsLengthAtLeast(numExposed))
         {
-            var builder = new StringBuilder(sourceValue.Length);
+            var builder = new StringBuilder(@this.Length);
             int index = maskedString.Length - numExposed;
 
             if (style == MaskStyle.AlphaNumericOnly)
             {
-                CreateAlphaNumMask(builder, sourceValue, maskChar, index);
+                CreateAlphaNumMask(builder, @this, maskChar, index);
             }
             else
             {
                 builder.Append(maskChar, index);
             }
 
-            builder.Append(sourceValue[index..]);
+            builder.Append(@this[index..]);
             maskedString = builder.ToString();
         }
 
@@ -75,81 +75,69 @@ public static partial class StringExtensions
     /// <summary>
     /// Mask the source string with the mask char except for the last exposed digits.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <param name="maskChar">The character to use to mask the source.</param>
     /// <param name="numExposed">Number of characters exposed in masked value.</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue, char maskChar, int numExposed)
+    public static string Mask(this string @this, char maskChar, int numExposed)
     {
-        return Mask(sourceValue, maskChar, numExposed, MaskStyle.All);
+        return Mask(@this, maskChar, numExposed, MaskStyle.All);
     }
 
     /// <summary>
     /// Mask the source string with the mask char.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <param name="maskChar">The character to use to mask the source.</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue, char maskChar)
-    {
-        return Mask(sourceValue, maskChar, 0, MaskStyle.All);
-    }
+    public static string Mask(this string @this, char maskChar) =>
+        Mask(@this, maskChar, 0, MaskStyle.All);
 
     /// <summary>
     /// Mask the source string with the default mask char except for the last exposed digits.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <param name="numExposed">Number of characters exposed in masked value.</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue, int numExposed)
-    {
-        return Mask(sourceValue, DefaultMaskCharacter, numExposed, MaskStyle.All);
-    }
+    public static string Mask(this string @this, int numExposed) =>
+        Mask(@this, DefaultMaskCharacter, numExposed, MaskStyle.All);
 
     /// <summary>
     /// Mask the source string with the default mask char.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue)
-    {
-        return Mask(sourceValue, DefaultMaskCharacter, 0, MaskStyle.All);
-    }
+    public static string Mask(this string @this) =>
+        Mask(@this, DefaultMaskCharacter, 0, MaskStyle.All);
 
     /// <summary>
     /// Mask the source string with the mask char.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <param name="maskChar">The character to use to mask the source.</param>
     /// <param name="style">The masking style to use (all characters or just alpha-nums).</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue, char maskChar, MaskStyle style)
-    {
-        return Mask(sourceValue, maskChar, 0, style);
-    }
+    public static string Mask(this string @this, char maskChar, MaskStyle style) =>
+        Mask(@this, maskChar, 0, style);
 
     /// <summary>
     /// Mask the source string with the default mask char except for the last exposed digits.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <param name="numExposed">Number of characters exposed in masked value.</param>
     /// <param name="style">The masking style to use (all characters or just alpha-nums).</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue, int numExposed, MaskStyle style)
-    {
-        return Mask(sourceValue, DefaultMaskCharacter, numExposed, style);
-    }
+    public static string Mask(this string @this, int numExposed, MaskStyle style) =>
+        Mask(@this, DefaultMaskCharacter, numExposed, style);
 
     /// <summary>
     /// Mask the source string with the default mask char.
     /// </summary>
-    /// <param name="sourceValue">Original string to mask.</param>
+    /// <param name="this">Original string to mask.</param>
     /// <param name="style">The masking style to use (all characters or just alpha-nums).</param>
     /// <returns>The masked account number.</returns>
-    public static string Mask(this string sourceValue, MaskStyle style)
-    {
-        return Mask(sourceValue, DefaultMaskCharacter, 0, style);
-    }
+    public static string Mask(this string @this, MaskStyle style) =>
+        Mask(@this, DefaultMaskCharacter, 0, style);
 
     /// <summary>
     /// Masks all characters for the specified length.
